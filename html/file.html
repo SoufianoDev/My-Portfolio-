@@ -7,6 +7,7 @@
     <title>Soufiano Dev - Modern Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sansita:wght@400;700&display=swap" rel="stylesheet">
     <style>
         .glass {
           backdrop-filter: blur(10px);
@@ -44,7 +45,7 @@
           align-items: flex-start; /* Align video to the top */
           margin-top: 20px; /* Add margin at the top */
           padding-top: 40px; /* Increased padding at the top */
-          background-color: transparent; /* Ensure no background */
+          background-color: transparent;
         }
 
         .video-wrapper video {
@@ -56,6 +57,11 @@
         }
 
         /* Hero Section */
+        .hero-content h1 {
+            font-family: 'Sansita', sans-serif;
+        }
+
+
         .hero {
           position: relative;
           height: 100vh;
@@ -96,6 +102,25 @@
             margin: 0 auto;
           }
         }
+        .flag {
+            font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Noto Emoji', sans-serif;
+        }
+
+        .flag img {
+            display: none;
+        }
+
+        @supports (font-variation-settings: normal) {
+            .flag img {
+                display: inline-block;
+                width: 20px;
+                height: 15px;
+                vertical-align: middle;
+                margin-left: 5px;
+            }
+        }
+
+
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 font-sans leading-relaxed">
@@ -117,8 +142,10 @@
 
     <!-- Hero Content -->
     <div class="hero-content">
-        <h1 id="heroTitle" class="text-5xl font-bold text-white opacity-0">Hi, I'm <span class="text-purple-400">Soufiano</span></h1>
-        <p id="heroSubtitle" class="text-lg opacity-0">Java & Kotlin Developer | From Morocco 🇲🇦</p>
+        <h1 id="heroTitle" class="text-5xl font-bold text-white opacity-0">Hi, I'm <span class="text-purple-400">Soufiano</span> </h1>
+        <p id="heroSubtitle" class="text-lg opacity-0">Java & Kotlin Developer | From Morocco  <span class="flag"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg" alt="Morocco Flag"></span></p>
+
+
     </div>
 
     <!-- Scroll for More -->
@@ -173,7 +200,7 @@
         <form id="contact-form" class="max-w-lg mx-auto space-y-4">
             <input type="text" id="name" class="w-full p-3 rounded-lg bg-gray-800 text-gray-300" placeholder="Your Name" required>
             <input type="email" id="email" class="w-full p-3 rounded-lg bg-gray-800 text-gray-300" placeholder="Your Email" required>
-            <textarea id="message" class="w-full p-3 rounded-lg bg-gray-800 text-gray-300" rows="5" placeholder="Your Message" required></textarea>
+            <label for="message"></label><textarea id="message" class="w-full p-3 rounded-lg bg-gray-800 text-gray-300" rows="5" placeholder="Your Message" required></textarea>
             <button type="submit" class="px-6 py-3 bg-purple-600 text-white rounded-full shadow-lg transform transition hover:bg-purple-500 hover:scale-105">Send Message</button>
         </form>
     </div>
