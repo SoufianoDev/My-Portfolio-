@@ -8,52 +8,53 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sansita:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         .glass {
-          backdrop-filter: blur(10px);
-          background-color: rgba(255, 255, 255, 0.1);
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          border-radius: 10px;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
         @keyframes neon {
-          0%, 100% {
-            text-shadow: 0 0 5px #9f7aea, 0 0 15px #9f7aea, 0 0 20px #9f7aea;
-          }
-          50% {
-            text-shadow: 0 0 15px #9f7aea, 0 0 25px #9f7aea, 0 0 35px #9f7aea;
-          }
+            0%, 100% {
+                text-shadow: 0 0 5px #9f7aea, 0 0 15px #9f7aea, 0 0 20px #9f7aea;
+            }
+            50% {
+                text-shadow: 0 0 15px #9f7aea, 0 0 25px #9f7aea, 0 0 35px #9f7aea;
+            }
         }
 
         .neon-text {
-          font-size: 1.5rem;
-          color: white;
-          animation: neon 1.5s infinite;
-          cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            animation: neon 1.5s infinite;
+            cursor: pointer;
         }
 
         /* Video Wrapper */
         .video-wrapper {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 1; /* Above the background but below the content */
-          display: flex;
-          justify-content: center;
-          align-items: flex-start; /* Align video to the top */
-          margin-top: 20px; /* Add margin at the top */
-          padding-top: 40px; /* Increased padding at the top */
-          background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 20px;
+            padding-top: 40px;
+            background-color: transparent;
         }
 
         .video-wrapper video {
-          width: 100%;
-          height: auto;
-          max-height: 80vh; /* Limit video height to avoid overlapping */
-          object-fit: cover;
-          background-color: transparent; /* Ensure no background */
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: cover;
+            background-color: transparent;
         }
 
         /* Hero Section */
@@ -61,46 +62,45 @@
             font-family: 'Sansita', sans-serif;
         }
 
-
         .hero {
-          position: relative;
-          height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          color: white;
-          overflow: hidden;
-          background-color: transparent; /* Ensure no background */
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            background-color: transparent;
         }
 
         .hero-content {
-          z-index: 2; /* Ensure content is above the video */
-          max-width: 800px;
-          padding: 0 20px;
-          background-color: transparent; /* Ensure no background */
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+            background-color: transparent;
         }
 
         .scroll-text-container {
-          position: absolute;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          visibility: hidden;
-          z-index: 2;
-          background-color: transparent; /* Ensure no background */
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            visibility: hidden;
+            z-index: 2;
+            background-color: transparent;
         }
 
         /* Responsive adjustments */
         @media (max-width: 640px) {
-          #projects {
-            padding: 20px;
-          }
+            #projects {
+                padding: 20px;
+            }
 
-          #contact-form {
-            max-width: 90%;
-            margin: 0 auto;
-          }
+            #contact-form {
+                max-width: 90%;
+                margin: 0 auto;
+            }
         }
         .flag {
             font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Noto Emoji', sans-serif;
@@ -119,15 +119,13 @@
                 margin-left: 5px;
             }
         }
-
-
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 font-sans leading-relaxed">
 
 <!-- Hero Section -->
 <header class="hero">
-    <!-- Gradient Overlay (Optional, remove if you want no background) -->
+    <!-- Gradient Overlay -->
     <div class="absolute inset-0 overflow-hidden">
         <div class="absolute w-full h-full bg-gradient-to-br from-purple-700 via-gray-900 to-black opacity-60"></div>
     </div>
@@ -144,8 +142,6 @@
     <div class="hero-content">
         <h1 id="heroTitle" class="text-5xl font-bold text-white opacity-0">Hi, I'm <span class="text-purple-400">Soufiano</span> </h1>
         <p id="heroSubtitle" class="text-lg opacity-0">Java & Kotlin Developer | From Morocco  <span class="flag"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg" alt="Morocco Flag"></span></p>
-
-
     </div>
 
     <!-- Scroll for More -->
@@ -184,17 +180,47 @@
                 <p>A Kotlin and Compose-based delivery application offering real-time tracking and order management.</p>
                 <a href="#" class="text-purple-400 underline">View Project</a>
             </div>
-            <div class="p-6 glass">
-                <h3 class="text-xl font-bold text-purple-400 mb-2">Weather App</h3>
-                <p>A Kotlin and XML project designed to fetch and display weather data in a user-friendly interface.</p>
-                <a href="#" class="text-purple-400 underline">View Project</a>
-            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certificates Section -->
+<section id="certificates" class="py-20 bg-gray-800">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-semibold text-center mb-10 text-gray-100">Certificates</h2>
+        <div id="certificates-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+            <!-- Certificates will be dynamically loaded here -->
+        </div>
+    </div>
+</section>
+
+<!-- Social Media Section -->
+<section id="social-media" class="py-20 bg-gray-900">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-semibold mb-6 text-gray-100">Connect With Me</h2>
+        <div class="flex justify-center space-x-6">
+            <!-- GitHub -->
+            <a href="https://github.com/yourusername" target="_blank" class="text-gray-400 hover:text-[#6e5494] transition duration-300">
+                <i class="fab fa-github text-4xl"></i>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/yourusername" target="_blank" class="text-gray-400 hover:text-[#0a66c2] transition duration-300">
+                <i class="fab fa-linkedin text-4xl"></i>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com/yourchannel" target="_blank" class="text-gray-400 hover:text-[#ff0000] transition duration-300">
+                <i class="fab fa-youtube text-4xl"></i>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com/yourusername" target="_blank" class="text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#833ab4] hover:via-[#fd1d1d] hover:to-[#fcb045] transition duration-300">
+                <i class="fab fa-instagram text-4xl"></i>
+            </a>
         </div>
     </div>
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="py-20 bg-gray-900">
+<section id="contact" class="py-20 bg-gray-800">
     <div class="container mx-auto text-center">
         <h2 class="text-3xl font-semibold mb-6 text-gray-100">Contact Me</h2>
         <form id="contact-form" class="max-w-lg mx-auto space-y-4">
@@ -207,7 +233,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="py-6 bg-gray-800 text-center">
+<footer class="py-6 bg-gray-900 text-center">
     <p class="text-gray-400">&copy; 2025 Soufiano Dev. All rights reserved.</p>
 </footer>
 
@@ -221,23 +247,66 @@
 
     // Display "Scroll for More" after 3 seconds
     setTimeout(() => {
-      const scrollText = document.querySelector('.scroll-text-container');
-      scrollText.style.visibility = 'visible';
+        const scrollText = document.querySelector('.scroll-text-container');
+        scrollText.style.visibility = 'visible';
     }, 3000);
 
     // Smooth scroll to About section
     const scrollForMore = document.getElementById("scrollForMore");
     scrollForMore.addEventListener("click", () => {
-      document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+        document.getElementById("about").scrollIntoView({ behavior: "smooth" });
     });
 
     // Contact form logic
     const form = document.getElementById("contact-form");
     form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      alert("Thank you for reaching out! I'll get back to you soon.");
-      form.reset();
+        event.preventDefault();
+        alert("Thank you for reaching out! I'll get back to you soon.");
+        form.reset();
+    });
+
+    // Load certificates dynamically
+    const certificates = [
+        {
+            title: "Java Advanced Certificate",
+            platform: "Programming Hub Platform",
+            image: "https://res.cloudinary.com/dqejzmexm/image/upload/v1735950558/Certificates/Soufiane_Hanane_Java_Advanced_oxfdyw.svg",
+            description: "Completed advanced Java programming concepts including OOP, Collections, Multithreading, and more."
+        },
+        {
+            title: "Kotlin Developer Certificate",
+            platform: "JetBrains Academy",
+            image: "https://res.cloudinary.com/dqejzmexm/image/upload/v1735950558/Certificates/Kotlin_Developer_Certificate.svg",
+            description: "Mastered Kotlin programming, including coroutines, Android development, and functional programming."
+        },
+        {
+            title: "Android Development Certificate",
+            platform: "Google Developers",
+            image: "https://res.cloudinary.com/dqejzmexm/image/upload/v1735950558/Certificates/Android_Development_Certificate.svg",
+            description: "Learned Android app development, including UI design, API integration, and Firebase."
+        }
+    ];
+
+    const certificatesContainer = document.getElementById("certificates-container");
+
+    certificates.forEach(certificate => {
+        const certificateHTML = `
+            <div class="p-6 glass transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 mb-4 flex items-center justify-center bg-purple-600 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-purple-400 mb-2">${certificate.title}</h3>
+                    <p class="text-gray-400 text-center mb-4">${certificate.platform}</p>
+                    <img src="${certificate.image}" alt="${certificate.title}" class="w-full h-auto rounded-lg">
+                    <p class="text-gray-500 text-sm text-center mt-4">${certificate.description}</p>
+                </div>
+            </div>
+        `;
+        certificatesContainer.innerHTML += certificateHTML;
     });
 </script>
 </body>
-</html>
+</html>ssss
