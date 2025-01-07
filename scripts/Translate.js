@@ -151,7 +151,6 @@ class Translator {
     }
 }
 
-// Initialize the Translator class
 const translator = new Translator();
 
 // Load additional translations and bind language switch functionality
