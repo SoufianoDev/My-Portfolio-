@@ -56,9 +56,9 @@ var intervalId = window.setInterval(function () {
   for (let index = 0; index < imgs.length; index++) {
     index != i && options.push(i);
   }
-  // la mab9itich baghiha tb9a random ->
+  // ->
   // i += 1;
-  // O7yad hadi li lt7t
+  
   i = Math.floor(Math.random() * options.length);
   imgs[i].style.opacity = "1";
 }, 3000);
