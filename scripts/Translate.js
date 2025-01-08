@@ -9,13 +9,18 @@ class Translator {
     this.translations = {
       en: {
         footerText: "© {year} Soufiano Dev. All rights reserved.",
+        messagePlaceholder: "Hello, I would like to discuss...",
+        inputPlaceholder: "Your name",
       },
       fr: {
         footerText: "© {year} Soufiano Dev. Tous droits réservés.",
+        messagePlaceholder: "Bonjour, je voudrais discuter de...",
+        inputPlaceholder: "Votre nom",
       },
       es: {
         footerText: "© {year} Soufiano Dev. Todos los derechos reservados.",
-
+        messagePlaceholder: "Hola, me gustaría hablar de...",
+        inputPlaceholder: "Tu nombre",
       },
       ar: {
         footerText: "© {year} Soufiano Dev. جميع الحقوق محفوظة.",
@@ -41,13 +46,13 @@ class Translator {
       },
       fr: {
         languageNotAvailable:
-        "Les traductions pour {lang} ne sont pas disponibles.",
+          "Les traductions pour {lang} ne sont pas disponibles.",
         alreadySelected: "{lang} est déjà sélectionné.",
         switchedTo: "Langue changée en {lang}.",
       },
       es: {
         languageNotAvailable:
-        "Las traductions pour {lang} ne sont pas disponibles.",
+          "Las traductions pour {lang} ne sont pas disponibles.",
         alreadySelected: "{lang} est déjà sélectionné.",
         switchedTo: "Idioma cambiado a {lang}.",
       },
@@ -63,7 +68,7 @@ class Translator {
     try {
       const response = await fetch(filePath);
       if (!response.ok)
-      throw new Error(`Failed to load translations for ${lang}`);
+        throw new Error(`Failed to load translations for ${lang}`);
       const data = await response.json();
       this.translations[lang] = { ...this.translations[lang], ...data };
     } catch (err) {
@@ -112,7 +117,7 @@ class Translator {
     // Update textarea placeholder and direction
     const textarea = document.querySelector("textarea");
     if (textarea) {
-      textarea.placeholder = this.translations[lang].messagePlaceholder;
+      textarea.placeholder = this.translations[lang].messagePlaceholder || "";
       if (lang === "ar") {
         textarea.style.direction = "rtl"; // Set direction to rtl for Arabic
       } else {
@@ -123,7 +128,7 @@ class Translator {
     // Update input placeholder and direction
     const input = document.querySelector("input");
     if (input) {
-      input.placeholder = this.translations[lang].inputPlaceholder;
+      input.placeholder = this.translations[lang].inputPlaceholder || "";
       if (lang === "ar") {
         input.style.direction = "rtl"; // Set direction to rtl for Arabic
       } else {
