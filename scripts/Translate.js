@@ -9,18 +9,13 @@ class Translator {
     this.translations = {
       en: {
         footerText: "© {year} Soufiano Dev. All rights reserved.",
-        messagePlaceholder: "Hello, I would like to discuss...",
-        inputPlaceholder: "Your name",
       },
       fr: {
         footerText: "© {year} Soufiano Dev. Tous droits réservés.",
-        messagePlaceholder: "Bonjour, je voudrais discuter de...",
-        inputPlaceholder: "Votre nom",
       },
       es: {
         footerText: "© {year} Soufiano Dev. Todos los derechos reservados.",
-        messagePlaceholder: "Hola, me gustaría hablar de...",
-        inputPlaceholder: "Tu nombre",
+
       },
       ar: {
         footerText: "© {year} Soufiano Dev. جميع الحقوق محفوظة.",
@@ -79,7 +74,7 @@ class Translator {
   async loadTranslations(langs) {
     for (const lang of langs) {
       try {
-        const filePath = `./languages/${lang}.json`; // Adjust the path to your JSON files
+        const filePath = `./languages/${lang}.json`;
         await this.loadTranslationsFromFile(lang, filePath);
       } catch (err) {
         console.error(`Error loading ${lang} translations:`, err);
@@ -114,16 +109,26 @@ class Translator {
       }
     });
 
-    // Update textarea placeholder
+    // Update textarea placeholder and direction
     const textarea = document.querySelector("textarea");
     if (textarea) {
       textarea.placeholder = this.translations[lang].messagePlaceholder;
+      if (lang === "ar") {
+        textarea.style.direction = "rtl"; // Set direction to rtl for Arabic
+      } else {
+        textarea.style.direction = "ltr"; // Reset direction for other languages
+      }
     }
 
-    // Update input placeholder
+    // Update input placeholder and direction
     const input = document.querySelector("input");
     if (input) {
       input.placeholder = this.translations[lang].inputPlaceholder;
+      if (lang === "ar") {
+        input.style.direction = "rtl"; // Set direction to rtl for Arabic
+      } else {
+        input.style.direction = "ltr"; // Reset direction for other languages
+      }
     }
 
     // Update footer text (unchanged)
