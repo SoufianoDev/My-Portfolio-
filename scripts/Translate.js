@@ -1,162 +1,161 @@
-// Wait for the DOM to fully load
-document.addEventListener('DOMContentLoaded', () => {
-    // Select the footer element containing the year
-    const footerYear = document.querySelector('.text-gray-400');
-    // Get the current year
-    const currentYear = new Date().getFullYear();
-    // Replace the existing year in the footer with the current year
-    footerYear.innerHTML = footerYear.innerHTML.replace(/\d{4}/, currentYear);
+document.addEventListener("DOMContentLoaded", () => {
+  const footerYear = document.querySelector(".text-gray-400");
+  const currentYear = new Date().getFullYear();
+  footerYear.innerHTML = footerYear.innerHTML.replace(/\d{4}/, currentYear);
 });
 
-// Translator class to handle multilingual support
 class Translator {
-    constructor() {
-        // Define default translations for multiple languages
-        this.translations = {
-            en: {
-                footerText: '© {year} Soufiano Dev. All rights reserved.'
-            },
-            fr: {
-                footerText: '© {year} Soufiano Dev. Tous droits réservés.'
-            },
-            es: {
-                footerText: '© {year} Soufiano Dev. Todos los derechos reservados.'
-            },
-            ar: {
-                footerText: '© {year} Soufiano Dev. جميع الحقوق محفوظة.'
-            }
-        };
+  constructor() {
+    this.translations = {
+      en: {
+        footerText: "© {year} Soufiano Dev. All rights reserved.",
+      },
+      fr: {
+        footerText: "© {year} Soufiano Dev. Tous droits réservés.",
+      },
+      es: {
+        footerText: "© {year} Soufiano Dev. Todos los derechos reservados.",
+      },
+      ar: {
+        footerText: "© {year} Soufiano Dev. جميع الحقوق محفوظة.",
+      },
+    };
+    this.toast = document.getElementById("toast");
+    this.showToastOnSwitch = false;
+    this.languageNames = {
+      en: "English",
+      fr: "Français",
+      es: "Español",
+      ar: "العربية",
+    };
+    this.initialLoad = true;
 
-        // Toast element for displaying messages
-        this.toast = document.getElementById('toast');
-        // Flag to control toast display on language switch
-        this.showToastOnSwitch = false;
-        // Language names for displaying in toast messages
-        this.languageNames = {
-            en: 'English',
-            fr: 'Français',
-            es: 'Español',
-            ar: 'العربية'
-        };
-        // Flag to indicate if the page is being loaded for the first time
-        this.initialLoad = true;
+    this.toastMessages = {
+      en: {
+        languageNotAvailable: "Translations for {lang} not available.",
+        alreadySelected: "{lang} is already selected.",
+        switchedTo: "Language switched to {lang}.",
+      },
+      fr: {
+        languageNotAvailable:
+          "Les traductions pour {lang} ne sont pas disponibles.",
+        alreadySelected: "{lang} est déjà sélectionné.",
+        switchedTo: "Langue changée en {lang}.",
+      },
+      es: {
+        languageNotAvailable:
+          "Las traductions pour {lang} ne sont pas disponibles.",
+        alreadySelected: "{lang} est déjà sélectionné.",
+        switchedTo: "Idioma cambiado a {lang}.",
+      },
+      ar: {
+        languageNotAvailable: "الترجمات للغة {lang} غير متوفرة.",
+        alreadySelected: "اللغة {lang} مُختارة بالفعل.",
+        switchedTo: "تم تغيير اللغة إلى {lang}.",
+      },
+    };
+  }
 
-        // Toast messages for different scenarios
-        this.toastMessages = {
-            en: {
-                languageNotAvailable: 'Translations for {lang} not available.',
-                alreadySelected: '{lang} is already selected.',
-                switchedTo: 'Language switched to {lang}.'
-            },
-            fr: {
-                languageNotAvailable: 'Les traductions pour {lang} ne sont pas disponibles.',
-                alreadySelected: '{lang} est déjà sélectionné.',
-                switchedTo: 'Langue changée en {lang}.'
-            },
-            es: {
-                languageNotAvailable: 'Las traducciones para {lang} no están disponibles.',
-                alreadySelected: '{lang} ya está seleccionado.',
-                switchedTo: 'Idioma cambiado a {lang}.'
-            },
-            ar: {
-                languageNotAvailable: 'الترجمات للغة {lang} غير متوفرة.',
-                alreadySelected: 'اللغة {lang} مُختارة بالفعل.',
-                switchedTo: 'تم تغيير اللغة إلى {lang}.'
-            }
-        };
+  async loadTranslationsFromFile(lang, filePath) {
+    try {
+      const response = await fetch(filePath);
+      if (!response.ok)
+        throw new Error(`Failed to load translations for ${lang}`);
+      const data = await response.json();
+      this.translations[lang] = { ...this.translations[lang], ...data };
+    } catch (err) {
+      console.error(`Error loading translations from file (${filePath}):`, err);
+    }
+  }
+
+  async loadTranslations(langs) {
+    for (const lang of langs) {
+      try {
+        const filePath = `./languages/${lang}.json`; // Adjust the path to your JSON files
+        await this.loadTranslationsFromFile(lang, filePath);
+      } catch (err) {
+        console.error(`Error loading ${lang} translations:`, err);
+      }
+    }
+  }
+
+  switchLanguage(lang) {
+    if (!Object.keys(this.translations[lang]).length) {
+      this.showToast(this.getToastMessage(lang, "languageNotAvailable"), lang);
+      return;
     }
 
-    // Load additional translations dynamically
-    async loadTranslations(langs) {
-        for (const lang of langs) {
-            try {
-                // Fetch translation file for the specified language
-                const response = await fetch(`/languages/${lang}.json`);
-                if (!response.ok) throw new Error(`Failed to load ${lang}.json`);
-                const data = await response.json();
-                // Merge new translations with existing ones
-                this.translations[lang] = { ...this.translations[lang], ...data };
-            } catch (err) {
-                console.error(`Error loading ${lang} translations:`, err);
-            }
-        }
+    if (document.documentElement.lang === lang) {
+      if (!this.initialLoad) {
+        this.showToast(this.getToastMessage(lang, "alreadySelected"), lang);
+      }
+      return;
     }
 
-    // Switch the language of the application
-    switchLanguage(lang) {
-        // Show error if translations for the selected language are not available
-        if (!this.translations[lang]) {
-            this.showToast(this.getToastMessage(lang, 'languageNotAvailable'), lang);
-            return;
-        }
-
-        // Check if the selected language is already active
-        if (document.documentElement.lang === lang) {
-            if (!this.initialLoad) {
-                this.showToast(this.getToastMessage(lang, 'alreadySelected'), lang);
-            }
-            return;
-        }
-
-        // Set the HTML document's language
-        document.documentElement.lang = lang;
-        // Update all translatable elements on the page
-        document.querySelectorAll('[data-translate]').forEach(el => {
-            const key = el.getAttribute('data-translate');
-            let translation = this.translations[lang][key];
-            if (translation) {
-                // Replace {year} placeholder with the current year
-                if (translation.includes('{year}')) {
-                    translation = translation.replace('{year}', new Date().getFullYear());
-                }
-                el.innerHTML = translation;
-            }
-        });
-
-        // Show a toast message if the language is switched
-        if (this.showToastOnSwitch) {
-            this.showToast(this.getToastMessage(lang, 'switchedTo'), lang);
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-translate]").forEach((el) => {
+      const key = el.getAttribute("data-translate");
+      let translation = this.translations[lang][key];
+      if (translation) {
+        if (translation.includes("{year}")) {
+          translation = translation.replace("{year}", new Date().getFullYear());
         }
 
-        this.initialLoad = false;
+        if (el.tagName === "TEXTAREA" || el.tagName === "INPUT") {
+          el.outerHTML = translation; // Replace the entire textarea element
+        } else {
+          el.innerHTML = translation; // Apply HTML directly for other elements
+        }
+      }
+    });
+
+    // Update footer text (unchanged)
+    const footerTextElement = document.querySelector(
+      "[data-translate='footerText']"
+    );
+    if (footerTextElement) {
+      let footerText = this.translations[lang].footerText;
+      if (footerText.includes("{year}")) {
+        footerText = footerText.replace("{year}", new Date().getFullYear());
+      }
+      footerTextElement.innerHTML = footerText;
     }
 
-    // Get the appropriate toast message based on language and message type
-    getToastMessage(lang, messageType) {
-        const template = this.toastMessages[lang]?.[messageType] || '';
-        return template.replace('{lang}', this.languageNames[lang] || lang);
+    if (this.showToastOnSwitch) {
+      this.showToast(this.getToastMessage(lang, "switchedTo"), lang);
     }
 
-    // Display a toast message
-    showToast(msg, lang) {
-        if (!this.toast) return console.warn('Toast element missing.');
-        this.toast.innerText = msg;
-        this.toast.classList.add('show');
-        // Hide the toast after 4 seconds
-        setTimeout(() => this.toast.classList.remove('show'), 4000);
-    }
+    this.initialLoad = false;
+  }
 
-    // Bind click events for language switch links
-    bindLanguageSwitch() {
-        document.querySelectorAll('.dropdown a').forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
-                const lang = e.target.getAttribute('data-lang');
-                this.showToastOnSwitch = true;
-                this.switchLanguage(lang);
-                // Update the URL hash with the selected language
-                window.location.hash = lang;
-            });
-        });
-    }
+  getToastMessage(lang, messageType) {
+    const template = this.toastMessages[lang]?.[messageType] || "";
+    return template.replace("{lang}", this.languageNames[lang] || lang);
+  }
+
+  showToast(msg, lang) {
+    if (!this.toast) return console.warn("Toast element missing.");
+    this.toast.innerText = msg;
+    this.toast.classList.add("show");
+    setTimeout(() => this.toast.classList.remove("show"), 4000);
+  }
+
+  bindLanguageSwitch() {
+    document.querySelectorAll(".dropdown a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const lang = e.target.getAttribute("data-lang");
+        this.showToastOnSwitch = true;
+        this.switchLanguage(lang);
+        window.location.hash = lang;
+      });
+    });
+  }
 }
 
 const translator = new Translator();
-
-// Load additional translations and bind language switch functionality
-translator.loadTranslations(['en', 'fr', 'es', 'ar']).then(() => {
-    translator.bindLanguageSwitch();
-    // Set the default language based on the URL hash or fallback to English
-    const preSelectedLang = window.location.hash.slice(1) || 'en';
-    translator.switchLanguage(preSelectedLang);
+translator.loadTranslations(["en", "fr", "es", "ar"]).then(() => {
+  translator.bindLanguageSwitch();
+  const preSelectedLang = window.location.hash.slice(1) || "en";
+  translator.switchLanguage(preSelectedLang);
 });

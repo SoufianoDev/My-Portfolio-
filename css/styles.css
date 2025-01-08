@@ -1,35 +1,34 @@
+
 .glass {
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-}
-
-@keyframes neon {
+  }
+  
+  @keyframes neon {
     0%,
     100% {
-        text-shadow: 0 0 5px #9f7aea, 0 0 15px #9f7aea,
-        0 0 20px #9f7aea;
+      text-shadow: 0 0 5px #9f7aea, 0 0 15px #9f7aea, 0 0 20px #9f7aea;
     }
     50% {
-        text-shadow: 0 0 15px #9f7aea, 0 0 25px #9f7aea,
-        0 0 35px #9f7aea;
+      text-shadow: 0 0 15px #9f7aea, 0 0 25px #9f7aea, 0 0 35px #9f7aea;
     }
-}
-
-.neon-text {
+  }
+  
+  .neon-text {
     font-size: 1.5rem;
     color: white;
     animation: neon 1.5s infinite;
     cursor: pointer;
-}
-
-/* Hero Section */
-.hero-content h1 {
+  }
+  
+  /* Hero Section */
+  .hero-content h1 {
     font-family: "Sansita", sans-serif;
-}
-
-.hero {
+  }
+  
+  .hero {
     position: relative;
     height: 100vh;
     display: flex;
@@ -39,16 +38,16 @@
     color: white;
     overflow: hidden;
     background-color: transparent;
-}
-
-.hero-content {
+  }
+  
+  .hero-content {
     z-index: 2;
     max-width: 800px;
     padding: 0 20px;
     background-color: transparent;
-}
-
-.scroll-text-container {
+  }
+  
+  .scroll-text-container {
     position: absolute;
     bottom: 60px;
     left: 50%;
@@ -56,106 +55,107 @@
     visibility: hidden;
     z-index: 2;
     background-color: transparent;
-}
-
-.images_random {
+  }
+  
+  .images_random {
     width: 100vw;
     height: 100vh;
     position: relative;
     position: absolute;
-}
-
-.images_random img {
+  }
+  
+  .images_random img {
     width: max(10vw, 10vh);
     transition: 2s;
     transition-timing-function: ease-in-out;
     height: auto;
     position: absolute;
     opacity: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 640px) {
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
     #projects {
-        padding: 20px;
+      padding: 20px;
     }
-
+  
     #contact-form {
-        max-width: 90%;
-        margin: 0 auto;
+      max-width: 90%;
+      margin: 0 auto;
     }
-}
-.flag {
-    font-family: "Apple Color Emoji", "Segoe UI Emoji",
-    "Noto Color Emoji", "Noto Emoji", sans-serif;
-}
-
-.flag img {
+  }
+  
+  .flag {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji",
+      "Noto Emoji", sans-serif;
+  }
+  
+  .flag img {
     display: none;
-}
-
-@supports (font-variation-settings: normal) {
+  }
+  
+  @supports (font-variation-settings: normal) {
     .flag img {
-        display: inline-block;
-        width: 20px;
-        height: 15px;
-        vertical-align: middle;
-        margin-left: 5px;
+      display: inline-block;
+      width: 20px;
+      height: 15px;
+      vertical-align: middle;
+      margin-left: 5px;
     }
-}
-
-#message::-webkit-scrollbar {
+  }
+  
+  #message::-webkit-scrollbar {
     width: 10px;
-}
-
-#message::-webkit-scrollbar-track {
+  }
+  
+  #message::-webkit-scrollbar-track {
     background: #4a5568;
     border-radius: 5px;
-}
-
-#message::-webkit-scrollbar-thumb {
+  }
+  
+  #message::-webkit-scrollbar-thumb {
     background: #9f7aea;
     border-radius: 5px;
-}
-
-#message::-webkit-scrollbar-thumb:hover {
+  }
+  
+  #message::-webkit-scrollbar-thumb:hover {
     background: #805ad5;
-}
-
-#message {
+  }
+  
+  #message {
     scrollbar-width: thin;
     scrollbar-color: #9f7aea #4a5568;
-}
-
-/* Custom Scrollbar for WebKit Browsers */
-::-webkit-scrollbar {
+  }
+  
+  /* Custom Scrollbar for WebKit Browsers */
+  ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
-}
-
-::-webkit-scrollbar-track {
+  }
+  
+  ::-webkit-scrollbar-track {
     background: #2d3748;
     border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb {
+  }
+  
+  ::-webkit-scrollbar-thumb {
     background: #9f7aea;
     border-radius: 6px;
     border: 3px solid #2d3748;
-}
-
-::-webkit-scrollbar-thumb:hover {
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
     background: #805ad5;
-}
-
-/* Custom Scrollbar for Firefox */
-html {
+  }
+  
+  /* Custom Scrollbar for Firefox */
+  html {
     scrollbar-width: thin;
     scrollbar-color: #9f7aea #2d3748;
-}
-
-/* OverlayScrollbars Custom Theme */
-.os-theme-dark {
+  }
+  
+  /* OverlayScrollbars Custom Theme */
+  .os-theme-dark {
     --os-size: 12px;
     --os-padding-perpendicular: 0;
     --os-track-bg: #2d3748;
@@ -163,58 +163,57 @@ html {
     --os-thumb-bg: #9f7aea;
     --os-thumb-border-radius: 6px;
     --os-thumb-bg-hover: #805ad5;
-}
-
-.language-selector {
+  }
+  
+  .language-selector {
     position: relative;
     display: inline-block;
-}
-
-.language-selector .dropdown {
+  }
+  
+  .language-selector .dropdown {
     display: none;
     position: absolute;
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     backdrop-filter: blur(10px);
     border-radius: 10px;
-}
-
-.language-selector .dropdown a {
+  }
+  
+  .language-selector .dropdown a {
     color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-}
-
-.language-selector .dropdown a:hover {
+  }
+  
+  .language-selector .dropdown a:hover {
     background-color: rgba(255, 255, 255, 0.2);
-}
-
-.language-selector:hover .dropdown,
-.language-selector .dropdown.show {
+  }
+  
+  .language-selector:hover .dropdown,
+  .language-selector .dropdown.show {
     display: block;
-}
-
-.language-icon {
+  }
+  
+  .language-icon {
     position: absolute;
     top: 20px;
     left: 20px;
     cursor: pointer;
-}
-
-/* Toast Container */
-.toast-container {
+  }
+  
+  /* Toast Container */
+  .toast-container {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-}
-
-
-.toast {
+  }
+  
+  .toast {
     position: fixed;
     top: 20px;
     left: 50%;
@@ -227,9 +226,9 @@ html {
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 1000;
     font-size: 16px;
-}
-
-.toast.show {
+  }
+  
+  .toast.show {
     opacity: 1;
     transform: translateX(-50%) scale(1.1);
-}
+  }

@@ -26,6 +26,7 @@
   "yourName": "Votre Nom",
   "yourEmail": "Votre Email",
   "yourMessage": "Votre Message",
+   "submitButton": "Soumettre",
   "sendMessage": "Envoyer un Message",
   "scrollForMore": "Faites défiler pour en savoir plus"
 }

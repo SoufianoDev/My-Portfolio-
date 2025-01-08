@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a202c" />
+    <title>Soufiano Dev - Modern Portfolio</title>
+
+    <!-- CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sansita:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Styles CSS-->
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body class="bg-gray-900 text-gray-200 font-sans leading-relaxed">
+    <!-- Hero Section -->
+    <header class="hero">
+      <!-- Gradient Overlay -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div
+          class="absolute w-full h-full bg-gradient-to-br from-purple-700 via-gray-900 to-black opacity-60"
+        ></div>
+      </div>
+
+      <!-- Video Wrapper -->
+      <div class="images_random">
+        <img
+          class="imgrandom"
+          style="top: 10%; left: 10%"
+          src="./assets/android_studio.png"
+          alt=""
+        />
+        <img
+          class="imgrandom"
+          style="bottom: 10%; right: 10%"
+          src="./assets/android.png"
+          alt=""
+        />
+        <img
+          class="imgrandom"
+          style="bottom: 10%; left: 10%"
+          src="./assets/java.png"
+          alt=""
+        />
+        <img
+          class="imgrandom"
+          style="bottom: 15%; left: 60%"
+          src="./assets/Kotlin_android.png"
+          alt=""
+        />
+        <img
+          class="imgrandom"
+          style="top: 10%; right: 10%"
+          src="./assets/jetpack_compose.png"
+          alt=""
+        />
+        <img
+          class="imgrandom"
+          style="top: 15%; left: 30%"
+          src="./assets/Kotlin.png"
+          alt=""
+        />
+        <img
+          class="imgrandom"
+          style="top: 60%; left: 50%"
+          src="/assets/sdk.png"
+          alt=""
+        />
+      </div>
+      <!-- Toast Element -->
+      <div id="toast" class="toast"></div>
+      <!-- Language Selector -->
+      <div class="language-icon">
+        <div class="language-selector">
+          <svg
+            viewBox="0 0 24 24"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-labelledby="languageIconTitle"
+            stroke="#ffffff"
+            stroke-width="1"
+            stroke-linecap="square"
+            stroke-linejoin="miter"
+            fill="none"
+            color="#ffffff"
+            width="32"
+            height="32"
+            onclick="toggleDropdown()"
+          >
+            <title id="languageIconTitle"></title>
+            <circle cx="12" cy="12" r="10"></circle>
+            <path
+              stroke-linecap="round"
+              d="M12,22 C14.6666667,19.5757576 16,16.2424242 16,12 C16,7.75757576 14.6666667,4.42424242 12,2 C9.33333333,4.42424242 8,7.75757576 8,12 C8,16.2424242 9.33333333,19.5757576 12,22 Z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              d="M2.5 9L21.5 9M2.5 15L21.5 15"
+            ></path>
+          </svg>
+          <div class="dropdown">
+            <a href="#" data-lang="en">English</a>
+            <a href="#" data-lang="fr">Français</a>
+            <a href="#" data-lang="es">Español</a>
+            <a href="#" data-lang="ar">العربية</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <h1
+          id="heroTitle"
+          class="text-5xl font-bold text-white opacity-0"
+          data-translate="heroTitle"
+        >
+          Hi, I'm <span class="text-purple-400">Soufiano</span>
+        </h1>
+        <p
+          id="heroSubtitle"
+          class="text-lg opacity-0"
+          data-translate="heroSubtitle"
+        >
+          Java & Kotlin Developer | From Morocco
+          <span class="flag"
+            ><img
+              src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg"
+              alt="Morocco Flag"
+          /></span>
+        </p>
+      </div>
+
+      <!-- Scroll for More -->
+      <div class="scroll-text-container" data-translate="scrollForMor">
+        <p id="scrollForMore" class="neon-text" data-translate="scrollForMore">
+          Scroll for More
+        </p>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+      <div class="container mx-auto text-center">
+        <!--    data-translate="aboutTitle"-->
+
+        <h2
+          class="text-3xl font-semibold mb-6 text-gray-100"
+          data-translate="aboutTitle"
+        >
+          About Me
+        </h2>
+        <p class="about-text" data-translate="aboutText">
+          I am Soufiane Hanane, a developer specialized in Android application
+          development using Java and Kotlin. I can work in shared development
+          environments for Android and iOS applications using Kotlin
+          Multiplatform. I have extensive experience in designing and
+          implementing high-quality applications, with a focus on interface
+          aesthetics and user-friendliness. I specialize in Java and always
+          strive to improve my skills and stay updated with the latest
+          programming trends. My productivity increases significantly when
+          working with a team of professional and understanding programmers,
+          allowing us to achieve our goals faster and more efficiently. I place
+          a strong emphasis on securing application information to the highest
+          degree, while ensuring a smooth and enjoyable user experience. My goal
+          is to create applications that not only function perfectly but also
+          provide real value to users. I am always excited to collaborate on new
+          projects, solve complex technical problems, and build innovative
+          applications. If you are looking for an experienced and committed
+          developer, feel free to contact me. Together, we can build something
+          amazing!
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-900">
+      <div class="container mx-auto">
+        <h2
+          class="text-3xl font-semibold text-center mb-10 text-gray-100"
+          data-translate="projectsTitle"
+        >
+          Projects
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="p-6 glass">
+            <h3
+              class="text-xl font-bold text-purple-400 mb-2"
+              data-translate="taskManagementAppTitle"
+            >
+              Task Management App
+            </h3>
+            <p data-translate="taskManagementAppDescription">
+              Built using Java and XML, this app helps users manage their tasks
+              efficiently.
+            </p>
+            <a
+              href="#"
+              class="text-purple-400 underline"
+              data-translate="viewProject"
+              >View Project</a
+            >
+          </div>
+          <div class="p-6 glass">
+            <h3
+              class="text-xl font-bold text-purple-400 mb-2"
+              data-translate="onlineStoreTitle"
+            >
+              Online Store
+            </h3>
+            <p data-translate="onlineStoreDescription">
+              A Kotlin Multiplatform app with an integrated website for seamless
+              e-commerce experiences.
+            </p>
+            <a
+              href="#"
+              class="text-purple-400 underline"
+              data-translate="viewProject"
+              >View Project</a
+            >
+          </div>
+          <div class="p-6 glass">
+            <h3
+              class="text-xl font-bold text-purple-400 mb-2"
+              data-translate="deliveryAppTitle"
+            >
+              Delivery App
+            </h3>
+            <p data-translate="deliveryAppDescription">
+              A Kotlin and Compose-based delivery application offering real-time
+              tracking and order management.
+            </p>
+            <a
+              href="#"
+              class="text-purple-400 underline"
+              data-translate="viewProject"
+              >View Project</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20 bg-gray-800">
+      <div class="container mx-auto">
+        <h2
+          class="text-3xl font-semibold text-center mb-10 text-gray-100"
+          data-translate="certificatesTitle"
+        >
+          Certificates
+        </h2>
+        <div
+          id="certificates-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
+        >
+          <!-- Java Advanced Certificate -->
+          <div
+            class="p-6 glass transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+          >
+            <div class="flex flex-col items-center">
+              <div
+                class="w-16 h-16 mb-4 flex items-center justify-center bg-purple-600 rounded-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-bold text-purple-400 mb-2"
+                data-translate="javaCertificateTitle"
+              >
+                Java Advanced Certificate
+              </h3>
+              <p
+                class="text-gray-400 text-center mb-4"
+                data-translate="javaCertificatePlatform"
+              >
+                Programming Hub Platform
+              </p>
+              <img
+                src="https://res.cloudinary.com/dqejzmexm/image/upload/v1735950558/Certificates/Soufiane_Hanane_Java_Advanced_oxfdyw.svg"
+                alt="Java Advanced Certificate"
+                class="w-full h-auto rounded-lg"
+              />
+              <p
+                class="text-gray-500 text-sm text-center mt-4"
+                data-translate="javaCertificateDescription"
+              >
+                Completed advanced Java programming concepts including OOP,
+                Collections, Multithreading, and more.
+              </p>
+            </div>
+          </div>
+
+          <!-- Kotlin Developer Certificate -->
+          <div
+            class="p-6 glass transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+          >
+            <div class="flex flex-col items-center">
+              <div
+                class="w-16 h-16 mb-4 flex items-center justify-center bg-purple-600 rounded-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-bold text-purple-400 mb-2"
+                data-translate="kotlinCertificateTitle"
+              >
+                Kotlin Developer Certificate
+              </h3>
+              <p
+                class="text-gray-400 text-center mb-4"
+                data-translate="kotlinCertificatePlatform"
+              >
+                JetBrains Academy
+              </p>
+              <img
+                src="path/to/kotlin-certificate-image.png"
+                alt="Kotlin Developer Certificate"
+                class="w-full h-auto rounded-lg"
+              />
+              <p
+                class="text-gray-500 text-sm text-center mt-4"
+                data-translate="kotlinCertificateDescription"
+              >
+                Mastered Kotlin programming, including coroutines, Android
+                development, and functional programming.
+              </p>
+            </div>
+          </div>
+
+          <!-- Android Development Certificate -->
+          <div
+            class="p-6 glass transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+          >
+            <div class="flex flex-col items-center">
+              <div
+                class="w-16 h-16 mb-4 flex items-center justify-center bg-purple-600 rounded-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-bold text-purple-400 mb-2"
+                data-translate="androidCertificateTitle"
+              >
+                Android Development Certificate
+              </h3>
+              <p
+                class="text-gray-400 text-center mb-4"
+                data-translate="androidCertificatePlatform"
+              >
+                Google Developers
+              </p>
+              <img
+                src="path/to/android-certificate-image.png"
+                alt="Android Development Certificate"
+                class="w-full h-auto rounded-lg"
+              />
+              <p
+                class="text-gray-500 text-sm text-center mt-4"
+                data-translate="androidCertificateDescription"
+              >
+                Learned Android app development, including UI design, API
+                integration, and Firebase.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social-media" class="py-20 bg-gray-900">
+      <div class="container mx-auto text-center">
+        <h2
+          class="text-3xl font-semibold mb-6 text-gray-100"
+          data-translate="socialMediaTitle"
+        >
+          Contact Me
+        </h2>
+        <div class="flex justify-center space-x-6">
+          <!-- GitHub -->
+          <a
+            href="https://github.com/SoufianoDev"
+            target="_blank"
+            class="text-gray-400 hover:text-[#6e5494] transition duration-300"
+          >
+            <i class="fab fa-github text-4xl"></i>
+          </a>
+          <!-- LinkedIn -->
+          <a
+            href="https://linkedin.com/in/yourusername"
+            target="_blank"
+            class="text-gray-400 hover:text-[#0a66c2] transition duration-300"
+          >
+            <i class="fab fa-linkedin text-4xl"></i>
+          </a>
+          <!-- YouTube -->
+          <a
+            href="https://youtube.com/yourchannel"
+            target="_blank"
+            class="text-gray-400 hover:text-[#ff0000] transition duration-300"
+          >
+            <i class="fab fa-youtube text-4xl"></i>
+          </a>
+          <!-- Instagram -->
+          <a
+            href="https://www.instagram.com/soufiane_hanane1/"
+            target="_blank"
+            class="text-gray-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#833ab4] hover:via-[#fd1d1d] hover:to-[#fcb045] transition duration-300"
+          >
+            <i class="fab fa-instagram text-4xl"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact via email Section -->
+    <section id="contact-via-email" class="py-12 md:py-20 bg-gray-800">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-2xl sm:text-3xl font-semibold text-center text-gray-100 mb-8"
+          data-translate="contactTitle"
+        >
+          Contact Me Via Email
+        </h2>
+        <form
+          id="contact-form"
+          class="max-w-lg mx-auto space-y-6 p-6 sm:p-8 bg-gray-700 rounded-lg shadow-lg"
+        >
+          <!-- Name Input -->
+          <div>
+            <label
+              for="name"
+              class="block text-sm font-medium text-gray-300 mb-1"
+              data-translate="yourName"
+              >Your Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              class="w-full p-3 rounded-lg bg-gray-600 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-transparent focus:border-gradient"
+              placeholder="John Smith"
+              required
+            />
+          </div>
+          <!-- Email Input -->
+          <div>
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-300 mb-1"
+              data-translate="yourEmail"
+              >Your Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              class="w-full p-3 rounded-lg bg-gray-600 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-transparent focus:border-gradient"
+              placeholder="johnSmith@example.com"
+              required
+            />
+          </div>
+          <!-- Message Textarea -->
+          <div>
+            <label
+              for="message"
+              class="block text-sm font-medium text-gray-300 mb-1"
+              data-translate="yourMessage"
+              >Your Message</label
+            >
+            <textarea
+              id="message"
+              class="w-full p-3 rounded-lg bg-gray-600 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-transparent focus:border-gradient"
+              data-translate="messageText"
+              rows="5"
+              placeholder="Hello, I would like to discuss..."
+              required
+            ></textarea>
+          </div>
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full px-6 py-3 text-white rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 transition duration-300"
+            data-translate="submitButton"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-gray-900 text-center">
+      <p class="text-gray-400" data-translate="footerText">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        Soufiano Dev. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- JS -->
+    <script src="./scripts/App.js" type="module"></script>
+    <script src="./scripts/Translate.js"></script>
+  </body>
+</html>

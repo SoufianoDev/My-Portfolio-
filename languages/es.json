@@ -27,6 +27,6 @@
   "yourEmail": "Tu Email",
   "yourMessage": "Tu Mensaje",
   "sendMessage": "Enviar Mensaje",
-  "footerText": "&copy; 2025 Soufiano Dev. Todos los derechos reservados.",
+   "submitButton": "Enviar",
   "scrollForMore": "Desplázate para más"
 }
