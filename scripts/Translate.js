@@ -10,7 +10,7 @@ class Translator {
       en: {
         footerText: "© {year} Soufiano Dev. All rights reserved.",
         messagePlaceholder: "Hello, I would like to discuss...",
-        inputPlaceholder: "Your name",
+        
       },
       fr: {
         footerText: "© {year} Soufiano Dev. Tous droits réservés.",
