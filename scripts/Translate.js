@@ -100,9 +100,12 @@ class Translator {
         if (translation.includes("{year}")) {
           translation = translation.replace("{year}", new Date().getFullYear());
         }
-
         if (el.tagName === "TEXTAREA" || el.tagName === "INPUT") {
-          el.outerHTML = translation; // Replace the entire textarea element
+          // Handle textarea and input separately
+          const newElement = document
+            .createRange()
+            .createContextualFragment(translation);
+          el.replaceWith(newElement); // Replace the entire element
         } else {
           el.innerHTML = translation; // Apply HTML directly for other elements
         }
