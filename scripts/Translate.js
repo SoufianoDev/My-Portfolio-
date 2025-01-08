@@ -25,7 +25,7 @@ class Translator {
       ar: {
         footerText: "© {year} Soufiano Dev. جميع الحقوق محفوظة.",
         messagePlaceholder: "مرحبًا، أود مناقشة...",
-        inputPlaceholder: "John Smith",
+        inputPlaceholder: "جون سميث",
       },
     };
     this.toast = document.getElementById("toast");
