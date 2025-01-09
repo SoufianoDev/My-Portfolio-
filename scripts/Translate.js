@@ -10,22 +10,23 @@ class Translator {
       en: {
         footerText: "© {year} Soufiano Dev. All rights reserved.",
         messagePlaceholder: "Hello, I would like to discuss...",
-        inputPlaceholder: "Your name",
+inputPlaceholder: "John Smith",
+        
       },
       fr: {
         footerText: "© {year} Soufiano Dev. Tous droits réservés.",
         messagePlaceholder: "Bonjour, je voudrais discuter de...",
-        inputPlaceholder: "Votre nom",
+        inputPlaceholder: "John Smith",
       },
       es: {
         footerText: "© {year} Soufiano Dev. Todos los derechos reservados.",
         messagePlaceholder: "Hola, me gustaría hablar de...",
-        inputPlaceholder: "Tu nombre",
+        inputPlaceholder: "John Smith",
       },
       ar: {
         footerText: "© {year} Soufiano Dev. جميع الحقوق محفوظة.",
         messagePlaceholder: "مرحبًا، أود مناقشة...",
-        inputPlaceholder: "Your name",
+        inputPlaceholder: "جون سميث",
       },
     };
     this.toast = document.getElementById("toast");
