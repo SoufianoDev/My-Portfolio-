@@ -1,6 +1,6 @@
 import gsap from "https://cdn.jsdelivr.net/npm/gsap@3.12.2/index.js";
 
-// Hero section animations
+// Hero section animations d
 gsap.to("#heroTitle", {
   opacity: 1,
   y: -10,
